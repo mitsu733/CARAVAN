@@ -1341,3 +1341,64 @@ Processing by BlogsController#show as HTML
 Completed 200 OK in 37ms (Views: 32.0ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/blogs/1" for 10.0.2.2 at 2020-01-13 03:36:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.5.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:7
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (371.4ms)
+Completed 500 Internal Server Error in 400ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `blog_parh' for #<#<Class:0x000055976f8d0d18>:0x000055976f8cbbb0>):
+    54:         </p>
+    55:  
+    56:       <%= link_to "編集", edit_blog_path(@blog) %>
+    57:       <%= link_to "削除",blog_parh(@blog),method: :delete %>
+    58:  
+    59:       <div class="author-case clearfix">
+    60:         <div class="author-image"></div>
+  
+app/views/blogs/show.html.erb:57:in `_app_views_blogs_show_html_erb__3735390143529024051_47054449972320'
+Started GET "/blogs/1" for 10.0.2.2 at 2020-01-13 03:37:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BlogsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:7
+  Rendering blogs/show.html.erb within layouts/application
+  Rendered blogs/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 77ms (Views: 72.0ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/blogs/1" for 10.0.2.2 at 2020-01-13 03:37:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BlogsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EWGXR36BalH91XDkZQH4pxivfNL0pn4mlQjpKLbtgobxnbehLIAD6ESh8cuIQEzsjtXEfRd/PW26o68CLvvzLA==", "id"=>"1"}
+  [1m[36mBlog Load (0.5ms)[0m  [1m[34mSELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blogs_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/blogs_controller.rb:32
+  [1m[36mBlog Destroy (1.2ms)[0m  [1m[31mDELETE FROM "blogs" WHERE "blogs"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/blogs_controller.rb:32
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/blogs_controller.rb:32
+Redirected to http://localhost:3000/blogs
+Completed 302 Found in 8ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/blogs" for 10.0.2.2 at 2020-01-13 03:37:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BlogsController#index as HTML
+  Rendering blogs/index.html.erb within layouts/application
+  [1m[36mBlog Load (0.4ms)[0m  [1m[34mSELECT "blogs".* FROM "blogs"[0m
+  ↳ app/views/blogs/index.html.erb:39
+  Rendered blogs/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 0.4ms)
+
+
